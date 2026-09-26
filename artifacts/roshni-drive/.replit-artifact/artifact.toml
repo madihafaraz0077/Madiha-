@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Roshni Drive Trial Booking"
+description = "A calm, mobile-first landing page for Roshni Drive that helps nervous learners book a low-pressure trial driving lesson in Peshawar and nearby areas."
+version = "1.0.0"
+id = "artifacts/roshni-drive"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25630
+
+[services.development]
+run = "pnpm --filter @workspace/roshni-drive run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/roshni-drive", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/roshni-drive/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25630"
+BASE_PATH = "/"

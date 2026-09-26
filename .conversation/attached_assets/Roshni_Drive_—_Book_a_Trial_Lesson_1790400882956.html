@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Learn to Drive, Nerve-Free — Book a Trial Lesson</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1F2B24;
+    --paper:#EFF0E8;
+    --paper-alt:#E4E6D9;
+    --green:#2B4C3F;
+    --gold:#E4A13B;
+    --muted:#5C6B60;
+    --line: rgba(31,43,36,0.14);
+    box-sizing:border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  html{ scroll-padding-top: env(safe-area-inset-top, 0px); }
+  *,*::before,*::after{ box-sizing:inherit; }
+  html,body{ margin:0; background:var(--paper); color:var(--ink); }
+  body{
+    font-family:'Work Sans', -apple-system, sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2{ font-family:'Fraunces', Georgia, serif; font-weight:600; margin:0; }
+  a{ color:inherit; }
+
+  .wrap{ max-width:640px; margin:0 auto; padding:0 24px; }
+
+  /* Sticky mini CTA bar */
+  .stickybar{
+    position:sticky; top:0; z-index:50;
+    padding-top: env(safe-area-inset-top, 0px);
+    background:var(--paper); border-bottom:1px solid var(--line);
+  }
+  .stickybar-inner{
+    max-width:640px; margin:0 auto; padding:12px 24px;
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+  }
+  .brand{ font-family:'Fraunces', serif; font-weight:600; font-size:1.05rem; }
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    background:var(--gold); color:var(--ink); text-decoration:none;
+    font-weight:600; padding:12px 22px; border-radius:3px;
+    font-size:0.95rem; border:none; cursor:pointer;
+    box-shadow:0 1px 0 rgba(31,43,36,0.2);
+  }
+  .btn:focus-visible{ outline:3px solid var(--green); outline-offset:2px; }
+  .btn-small{ padding:9px 16px; font-size:0.88rem; }
+
+  /* Hero */
+  .hero{ padding:56px 0 40px; }
+  .hero h1{ font-size:2.15rem; line-height:1.18; letter-spacing:-0.01em; }
+  .hero p.lede{ margin-top:16px; font-size:1.08rem; color:var(--muted); max-width:34ch; }
+  .hero .cta-row{ margin-top:28px; display:flex; flex-direction:column; gap:10px; align-items:flex-start; }
+  .hero .btn{ width:100%; text-align:center; padding:15px 22px; font-size:1.02rem; }
+  .hero .microcopy{ font-size:0.86rem; color:var(--muted); }
+
+  /* Reassurance strip */
+  .reassure{ border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:22px 0; }
+  .reassure ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
+  .reassure li{ font-size:0.95rem; color:var(--ink); padding-left:22px; position:relative; }
+  .reassure li::before{
+    content:""; position:absolute; left:0; top:8px; width:9px; height:9px;
+    background:var(--green); border-radius:50%;
+  }
+
+  section{ padding:40px 0; }
+  section h2{ font-size:1.5rem; margin-bottom:14px; }
+  section p{ color:var(--muted); font-size:1rem; max-width:42ch; }
+
+  /* Trial includes */
+  .includes{ border-top:1px solid var(--line); }
+  .includes-list{ margin-top:20px; display:flex; flex-direction:column; }
+  .includes-list > div{ padding:16px 0; border-bottom:1px solid var(--line); }
+  .includes-list > div:first-child{ padding-top:0; }
+  .includes-list h3{ font-family:'Fraunces', serif; font-weight:500; font-size:1.05rem; margin:0 0 4px; }
+  .includes-list p{ margin:0; font-size:0.93rem; }
+
+  /* How it works */
+  .steps{ border-top:1px solid var(--line); }
+  .step{ display:flex; gap:16px; padding:14px 0; }
+  .step .num{
+    font-family:'Fraunces', serif; font-weight:600; color:var(--green);
+    font-size:1.3rem; flex:none; width:28px;
+  }
+  .step h3{ font-family:'Fraunces', serif; font-weight:500; font-size:1.02rem; margin:0 0 4px; }
+  .step p{ margin:0; font-size:0.92rem; }
+
+  /* Trust */
+  .trust{ border-top:1px solid var(--line); background:var(--paper-alt); }
+  .trust blockquote{
+    margin:0; font-family:'Fraunces', serif; font-size:1.15rem; line-height:1.5;
+    font-weight:500; font-style:normal;
+  }
+  .trust cite{ display:block; margin-top:12px; font-size:0.88rem; color:var(--muted); font-style:normal; }
+
+  /* Final CTA */
+  .final{ text-align:left; }
+  .final h2{ font-size:1.7rem; }
+  .final p{ max-width:38ch; }
+  .final .btn{ margin-top:20px; width:100%; text-align:center; padding:16px 22px; font-size:1.05rem; }
+  .final .alt{ margin-top:14px; font-size:0.9rem; }
+  .final .alt a{ text-decoration:underline; }
+
+  footer{ border-top:1px solid var(--line); padding:22px 0 32px; font-size:0.82rem; color:var(--muted); }
+
+  @media (min-width:600px){
+    .hero h1{ font-size:2.6rem; }
+    .hero .cta-row{ flex-direction:row; align-items:center; }
+    .hero .btn{ width:auto; }
+    .final .btn{ width:auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stickybar">
+  <div class="stickybar-inner">
+    <span class="brand">Roshni Drive</span>
+    <a class="btn btn-small" href="#book">Book trial</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section class="hero">
+    <h1>Nervous about driving? That's exactly who we teach.</h1>
+    <p class="lede">Patient, women-friendly instructors who start at your pace — not the road's. Try one lesson before you decide on anything.</p>
+    <div class="cta-row">
+      <a class="btn" href="#book">Book your trial lesson</a>
+      <span class="microcopy">Rs. 1,500 · no long-term commitment</span>
+    </div>
+  </section>
+
+  <section class="reassure">
+    <ul>
+      <li>Female instructors available on request</li>
+      <li>Dual-pedal car, so you're never fully on your own</li>
+      <li>Pick-up from home or a spot you're comfortable with</li>
+    </ul>
+  </section>
+
+  <section class="includes">
+    <h2>What your trial lesson covers</h2>
+    <p>One real lesson, not a sales pitch — so you can feel what learning here is actually like.</p>
+    <div class="includes-list">
+      <div>
+        <h3>A calm start</h3>
+        <p>We begin in a quiet, low-traffic area — mirrors, seating, basic controls — until you're relaxed behind the wheel.</p>
+      </div>
+      <div>
+        <h3>Your first drive</h3>
+        <p>Slow, guided driving with the instructor talking you through every move, at a pace you set.</p>
+      </div>
+      <div>
+        <h3>An honest plan</h3>
+        <p>At the end, your instructor tells you what to expect next — how many lessons, what to focus on, no pressure to book more.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="steps">
+    <h2>Booking takes two minutes</h2>
+    <div class="step">
+      <span class="num">1</span>
+      <div><h3>Send your details</h3><p>Name, area, and instructor preference — form below or WhatsApp.</p></div>
+    </div>
+    <div class="step">
+      <span class="num">2</span>
+      <div><h3>We confirm a time</h3><p>Within a few hours, matched to an instructor near you.</p></div>
+    </div>
+    <div class="step">
+      <span class="num">3</span>
+      <div><h3>You take the wheel</h3><p>Your instructor arrives, and your first lesson begins.</p></div>
+    </div>
+  </section>
+
+  <section class="trust">
+    <blockquote>
+      "I'd failed my first attempt with another school and was scared to try again. My instructor here never made me feel behind."
+      <cite>— Sana, trial lesson graduate</cite>
+    </blockquote>
+  </section>
+
+  <section class="final" id="book">
+    <h2>Ready when you are</h2>
+    <p>No pressure, no obligation — just one lesson to see if it feels right.</p>
+    <a class="btn" href="https://wa.me/923001234567?text=Hi%2C%20I%27d%20like%20to%20book%20a%20trial%20driving%20lesson." target="_blank" rel="noopener">Book on WhatsApp</a>
+    <p class="alt">Prefer to talk first? <a href="tel:+923001234567">Call +92 300 1234567</a></p>
+  </section>
+
+  <footer>
+    Roshni Drive · Serving Peshawar and nearby areas · Trial lessons available 7 days a week
+  </footer>
+
+</div>
+</body>
+</html>
